@@ -83,4 +83,8 @@ EXPOSE $PORT
 USER owauser
 
 
-ENTRYPOINT ["/usr/bin/dumb-init", "--", "./start.sh", "./node_modules/@open-wa/wa-automate/bin/server.js", "--in-docker", "--qr-timeout", "0", "--popup", "--debug", "--force-port"]
+FROM openwa/wa-automate
+ENTRYPOINT []
+
+COPY index.js
+RUN node index.js
